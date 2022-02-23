@@ -6,6 +6,7 @@
 		this.iframeLoaded = false;
 		this.iframeOpen = false;
 		this.defaults = t;
+		console.log(t, this.defaults);
 		this.popup();
 	}
 	(baseScript.prototype.popup = function () {
