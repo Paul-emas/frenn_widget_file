@@ -7,6 +7,7 @@
 			(this.iframeOpen = false),
 			(this.defaults = t),
 			this.popup();
+		console.log(this.defaults, t);
 	}
 	(baseScript.prototype.popup = function () {
 		const baseURL = 'http://frenn-widget.vercel.app/';
