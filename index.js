@@ -89,10 +89,11 @@
 			}
 		},
 	};
-	(window.FrennWidgetPop = FrennWidgetPop),
-		(window.onload = function () {
-			FrennWidgetPop.isInitialized || FrennWidgetPop.initialize();
-		});
+	window.FrennWidgetPop = FrennWidgetPop;
+
+	window.onload = function () {
+		FrennWidgetPop.isInitialized || FrennWidgetPop.initialize();
+	};
 
 	function randomId() {
 		for (var t = '', e = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789', n = 0; n < 5; n++)
