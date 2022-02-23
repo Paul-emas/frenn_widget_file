@@ -1,26 +1,25 @@
 !(function () {
 	function baseScript(t) {
-		(this.iframe = null),
-			(this.backgroundId = null),
-			(this.popPageId = null),
-			(this.iframeLoaded = false),
-			(this.iframeOpen = false),
-			(this.defaults = t),
-			this.popup();
+		this.iframe = null;
+		this.backgroundId = null;
+		this.popPageId = null;
+		this.iframeLoaded = false;
+		this.iframeOpen = false;
+		this.defaults = t;
+		this.popup();
 	}
 	(baseScript.prototype.popup = function () {
 		const baseURL = 'http://frenn-widget.vercel.app/';
 		var t = document.createElement('iframe');
 		let iframe;
-		t.setAttribute('frameBorder', '0'),
-			t.setAttribute('allowtransparency', 'true'),
-			(t.id = randomId()),
-			(t.name = 'frenn-checkout-background-' + t.id),
-			(t.style.cssText =
-				'z-index: 999999999999999;background: transparent;background: rgba(0, 0, 0, 0.75);border: 0px none transparent;overflow-x: hidden;overflow-y: hidden;margin: 0;padding: 0;-webkit-tap-highlight-color: transparent;-webkit-touch-callout: none;position: fixed;left: 0;top: 0;width: 100%;height: 100%;transition: opacity 0.3s;-webkit-transition: opacity 0.3s;visibility: hidden;'),
-			(t.style.display = 'none'),
-			(this.background = t),
-			document.body.appendChild(t);
+		t.setAttribute('frameBorder', '0');
+		t.setAttribute('allowtransparency', 'true');
+		t.id = randomId();
+		t.name = 'frenn-checkout-background-' + t.id;
+		t.style.cssText =
+			'z-index: 999999999999999;background: transparent;background: rgba(0, 0, 0, 0.75);border: 0px none transparent;overflow-x: hidden;overflow-y: hidden;margin: 0;padding: 0;-webkit-tap-highlight-color: transparent;-webkit-touch-callout: none;position: fixed;left: 0;top: 0;width: 100%;height: 100%;transition: opacity 0.3s;-webkit-transition: opacity 0.3s;visibility: hidden;';
+		t.style.display = 'none';
+		(this.background = t), document.body.appendChild(t);
 		var background = t;
 		this.backgroundId = t.id;
 		var e = background.contentWindow.document;
@@ -30,16 +29,16 @@
 		);
 		e.close();
 		var n = document.createElement('iframe');
-		n.setAttribute('frameBorder', '0'),
-			n.setAttribute('allowtransparency', 'true'),
-			// n.setAttribute("allowpaymentrequest", "true"),
-			(n.id = randomId()),
-			(n.name = 'frenn-checkout-' + n.id),
-			(n.style.cssText =
-				'z-index: 999999999999999;background: transparent;border: 0px none transparent;overflow-x: hidden;overflow-y: hidden;margin: 0;padding: 0;-webkit-tap-highlight-color: transparent;-webkit-touch-callout: none;position: fixed;left: 0;top: 0;width: 100%;height: 100%;visibility:hidden;'),
-			(n.style.display = 'none'),
-			console.log(this.defaults),
-			(n.src = `${baseURL}?key=${this.defaults.key}?amount=${this.defaults.amount}?email=${this.defaults.email}`);
+		n.setAttribute('frameBorder', '0');
+		n.setAttribute('allowtransparency', 'true');
+		// n.setAttribute("allowpaymentrequest", "true"),
+		n.id = randomId();
+		n.name = 'frenn-checkout-' + n.id;
+		n.style.cssText =
+			'z-index: 999999999999999;background: transparent;border: 0px none transparent;overflow-x: hidden;overflow-y: hidden;margin: 0;padding: 0;-webkit-tap-highlight-color: transparent;-webkit-touch-callout: none;position: fixed;left: 0;top: 0;width: 100%;height: 100%;visibility:hidden;';
+		n.style.display = 'none';
+		console.log(this.defaults);
+		n.src = `${baseURL}?key=${this.defaults.key}?amount=${this.defaults.amount}?email=${this.defaults.email}`;
 		this.popPageId = n.id;
 		document.body.appendChild(n);
 
