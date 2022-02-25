@@ -71,6 +71,8 @@
 		init: function (t, e) {
 			var n = 'frenn' + randomId(),
 				r = {
+					key: t.key || '',
+					merchantId: t.merchantId || '',
 					orderReference: t.orderReference || '',
 					amount: t.amount || '',
 					customer: {
