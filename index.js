@@ -37,7 +37,7 @@
 		n.style.cssText =
 			'z-index: 999999999999999;background: transparent;border: 0px none transparent;overflow-x: hidden;overflow-y: hidden;margin: 0;padding: 0;-webkit-tap-highlight-color: transparent;-webkit-touch-callout: none;position: fixed;left: 0;top: 0;width: 100%;height: 100%;visibility:hidden;';
 		n.style.display = 'none';
-		var params = this.defaults ? `/?params=${this.defaults}` : '';
+		var params = this.defaults ? `/?params=${JSON.stringify(this.defaults)}` : '';
 		n.src = `${baseURL}${params}`;
 		this.popPageId = n.id;
 		document.body.appendChild(n);
