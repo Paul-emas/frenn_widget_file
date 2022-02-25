@@ -91,7 +91,7 @@
 						mRefundsLast3: t.mRefundsLast3 || '',
 					},
 					redirectUrl: t.redirectUrl || '',
-					webhook: r.webhook || '',
+					webhook: t.webhook || '',
 				};
 			if (r) {
 				const iframeEl = document.getElementById(this.background);
