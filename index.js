@@ -38,7 +38,7 @@
 			'z-index: 999999999999999;background: transparent;border: 0px none transparent;overflow-x: hidden;overflow-y: hidden;margin: 0;padding: 0;-webkit-tap-highlight-color: transparent;-webkit-touch-callout: none;position: fixed;left: 0;top: 0;width: 100%;height: 100%;visibility:hidden;';
 		n.style.display = 'none';
 		var params = this.defaults
-			? `/?key=${this.defaults.key}?amount=${this.defaults.amount}?email=${this.defaults.email}`
+			? `/?orderReference=${this.defaults.orderReference}?amount=${this.defaults.amount}?customer=${this.defaults.customer}?transactionHistory=${this.defaults.transactionHistory}?redirectUrl=${this.redirectUrl}?webhook=${webhook}`
 			: '';
 		n.src = `${baseURL}${params}`;
 		this.popPageId = n.id;
@@ -73,14 +73,27 @@
 		init: function (t, e) {
 			var n = 'frenn' + randomId(),
 				r = {
-					id: n,
-					key: t.key || '',
-					ref: t.ref || '',
-					label: t.label || '',
-					email: t.email || '',
+					orderReference: t.orderReference || '',
 					amount: t.amount || '',
-					currency: t.currency || 'NGN',
-					container: t.container,
+					customer: {
+						phoneNo: t.phoneNo || '',
+						name: t.name || '',
+						email: t.email || '',
+						shippingAddress: t.shippingAddress || '',
+						shippingLGA: t.shippingAddress || '',
+						shippingState: t.shippingAddress || '',
+						createdAt: t.createdAt || '',
+					},
+					transactionHistory: {
+						totalOrders: t.totalOrders || '',
+						totalSales: t.totalSales || '',
+						totalRefunds: t.totalRefunds || '',
+						mOrdersLast3: t.mOrdersLast3 || '',
+						mSalesLast3: t.mSalesLast3 || '',
+						mRefundsLast3: t.mRefundsLast3 || '',
+					},
+					redirectUrl: t.redirectUrl || '',
+					webhook: r.webhook || '',
 				};
 			if (r) {
 				const iframeEl = document.getElementById(this.background);
