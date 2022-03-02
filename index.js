@@ -92,8 +92,6 @@
 				};
 			if (r) {
 				const iframeEl = document.getElementById(this.background);
-				// const closeBtn = document.getElementById('frenn_close');
-				// if (closeBtn) closeBtn.addEventListener('click', this.closePopUp());
 				return this.initialize(r);
 			}
 		},
@@ -101,7 +99,7 @@
 	window.FrennWidgetPop = FrennWidgetPop;
 	window.onload = function () {
 		FrennWidgetPop.isInitialized || FrennWidgetPop.initialize();
-		document.getElementById('frenn_close').addEventListener('click', this.closePopUp());
+		// document.getElementById('frenn_close').addEventListener('click', this.closePopUp());
 	};
 
 	function randomId() {
