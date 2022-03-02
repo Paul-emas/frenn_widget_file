@@ -67,7 +67,7 @@
 			var n = 'frenn' + randomId(),
 				r = {
 					key: t.key || '',
-					uuid: t.uuid || '',
+					merchantId: t.merchantId || '',
 					orderReference: t.orderReference || '',
 					amount: t.amount || '',
 					customer: {
