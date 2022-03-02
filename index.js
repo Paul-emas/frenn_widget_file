@@ -75,8 +75,8 @@
 						name: t.customer.name || '',
 						email: t.customer.email || '',
 						shippingAddress: t.customer.shippingAddress || '',
-						shippingLGA: t.customer.shippingAddress || '',
-						shippingState: t.customer.shippingAddress || '',
+						shippingLGA: t.customer.shippingLGA || '',
+						shippingState: t.customer.shippingState || '',
 						createdAt: t.customer.createdAt || '',
 					},
 					transactionHistory: {
