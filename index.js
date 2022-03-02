@@ -92,8 +92,8 @@
 				};
 			if (r) {
 				const iframeEl = document.getElementById(this.background);
-				const closeBtn = document.getElementById('frenn_close');
-				if (closeBtn) closeBtn.addEventListener('click', this.closePopUp());
+				// const closeBtn = document.getElementById('frenn_close');
+				// if (closeBtn) closeBtn.addEventListener('click', this.closePopUp());
 				return this.initialize(r);
 			}
 		},
