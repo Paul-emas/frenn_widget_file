@@ -41,11 +41,6 @@
 		n.src = `${baseURL}${params}`;
 		this.popPageId = n.id;
 		document.body.appendChild(n);
-
-		// n.addEventListener('load', () => {
-		// 	let innerDoc = n.contentDocument || n.contentWindow.document;
-		// 	innerDoc.getElementById('frenn_close').addEventListener('click', this.closePopUp());
-		// });
 	}),
 		(baseScript.prototype.showPopUp = function () {
 			document.getElementById(this.backgroundId).style.display = '';
@@ -72,7 +67,7 @@
 			var n = 'frenn' + randomId(),
 				r = {
 					key: t.key || '',
-					merchantId: t.merchantId || '',
+					uuid: t.uuid || '',
 					orderReference: t.orderReference || '',
 					amount: t.amount || '',
 					customer: {
@@ -106,6 +101,7 @@
 	window.FrennWidgetPop = FrennWidgetPop;
 	window.onload = function () {
 		FrennWidgetPop.isInitialized || FrennWidgetPop.initialize();
+		document.getElementById('frenn_close').addEventListener('click', this.closePopUp());
 	};
 
 	function randomId() {
