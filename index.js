@@ -91,7 +91,9 @@
 					webhook: t.webhook || '',
 				};
 			if (r) {
-				const iframeEl = document.getElementById(this.background);
+				var iframeEl = document.getElementById(this.background);
+				var closeBtn = document.getElementById('frenn_close');
+				console.log(closeBtn);
 				return this.initialize(r);
 			}
 		},
