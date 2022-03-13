@@ -99,20 +99,19 @@
 	window.FrennWidgetPop = FrennWidgetPop;
 	window.onload = function () {
 		FrennWidgetPop.isInitialized || FrennWidgetPop.initialize();
-		if (FrennWidgetPop.isInitialized) {
-			var closeBtn = document.getElementById('frenn_close');
-			if (closeBtn) {
-				closeBtn.addEventListener('click', () => {
-					console.log('I was clicked');
-					this.closePopUp();
-				});
-			}
-		}
 	};
 
 	function randomId() {
 		for (var t = '', e = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789', n = 0; n < 5; n++)
 			t += e.charAt(Math.floor(Math.random() * e.length));
 		return t;
+	}
+
+	var closeBtn = document.getElementById('frenn_close');
+	if (closeBtn) {
+		closeBtn.addEventListener('click', () => {
+			console.log('I was clicked');
+			this.closePopUp();
+		});
 	}
 })();
