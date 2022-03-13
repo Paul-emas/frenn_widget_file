@@ -99,10 +99,12 @@
 	window.FrennWidgetPop = FrennWidgetPop;
 	window.onload = function () {
 		FrennWidgetPop.isInitialized || FrennWidgetPop.initialize();
-		document.getElementById('frenn_close').addEventListener('click', () => {
-			console.log('I was clicked');
-			this.closePopUp();
-		});
+		if (FrennWidgetPop.isInitialized) {
+			document.getElementById('frenn_close').addEventListener('click', () => {
+				console.log('I was clicked');
+				this.closePopUp();
+			});
+		}
 	};
 
 	function randomId() {
