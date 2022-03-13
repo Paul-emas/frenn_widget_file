@@ -10,6 +10,8 @@
 	}
 	(baseScript.prototype.popup = function () {
 		const baseURL = 'http://frenn-widget.vercel.app/';
+				console.log(this.closePopUp, baseScript.closePopUp);
+
 		var t = document.createElement('iframe');
 		let iframe;
 		t.setAttribute('frameBorder', '0');
