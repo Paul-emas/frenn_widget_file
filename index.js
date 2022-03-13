@@ -99,14 +99,13 @@
 	window.FrennWidgetPop = FrennWidgetPop;
 	window.onload = function () {
 		FrennWidgetPop.isInitialized || FrennWidgetPop.initialize();
-		if (FrennWidgetPop.isInitialized) {
-			var closeBtn = document.getElementById('frenn_close');
-			if (closeBtn) {
-				closeBtn.addEventListener('click', () => {
-					console.log('I was clicked');
-					this.closePopUp();
-				});
-			}
+		var closeBtn = document.getElementById('frenn_close');
+		console.log(closeBtn);
+		if (closeBtn) {
+			closeBtn.addEventListener('click', () => {
+				console.log('I was clicked');
+				this.closePopUp();
+			});
 		}
 	};
 
