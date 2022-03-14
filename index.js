@@ -9,8 +9,7 @@
 		this.popup();
 	}
 	(baseScript.prototype.popup = function () {
-		const baseURL = 'http://frenn-widget.vercel.app/';
-		console.log(this.closePopUp, baseScript.closePopUp);
+		const baseURL = 'https://frenn-widget.vercel.app/';
 		var t = document.createElement('iframe');
 		let iframe;
 		t.setAttribute('frameBorder', '0');
@@ -94,7 +93,6 @@
 			if (r) {
 				var iframeEl = document.getElementById(this.background);
 				var closeBtn = document.getElementById('frenn_close');
-				console.log(closeBtn);
 				return this.initialize(r);
 			}
 		},
