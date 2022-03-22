@@ -9,7 +9,7 @@
 		this.popup();
 	}
 	(baseScript.prototype.popup = function () {
-		const baseURL = 'https://frenn-widget.vercel.app/';
+		const baseURL = 'https://biz-api.frenn.com';
 		var t = document.createElement('iframe');
 		let iframe;
 		t.setAttribute('frameBorder', '0');
