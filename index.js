@@ -58,9 +58,14 @@
 			document.getElementById(this.popPageId).style.visibility = 'hidden';
 		}),
 		(baseScript.prototype.listener = function () {
+			console.log('I was called');
 			window.addEventListener('message', (event) => {
+				console.log(`Received message: ${event}`);
 				console.log(`Received message: ${event.data}`);
 			});
+			window.onmessage = (event) => {
+				console.log(`Received message: ${event}`);
+			};
 			// window.location.href = 'https://google.com';
 		});
 	var FrennWidgetPop = {
