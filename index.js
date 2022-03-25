@@ -10,7 +10,8 @@
 		this.listener();
 	}
 	(baseScript.prototype.popup = function () {
-		const baseURL = 'https://biz-api.frenn.com';
+		// const baseURL = 'https://biz-api.frenn.com';
+		const baseURL = 'https://localhost:3000';
 		var t = document.createElement('iframe');
 		let iframe;
 		t.setAttribute('frameBorder', '0');
@@ -59,13 +60,15 @@
 		}),
 		(baseScript.prototype.listener = function () {
 			console.log('I was called');
-			window.addEventListener('message', (event) => {
-				console.log(`Received message: ${event}`);
-				console.log(`Received message: ${event.data}`);
-			});
-			window.onmessage = (event) => {
-				console.log(`Received message: ${event}`);
-			};
+			const postUrl = process.env.REACT_APP_FRENN_BASE_URL;
+			window.postMessage('close', '*');
+			// window.addEventListener('message', (event) => {
+			// 	console.log(`Received message: ${event}`);
+			// 	console.log(`Received message: ${event.data}`);
+			// });
+			// window.onmessage = (event) => {
+			// 	console.log(`Received message: ${event}`);
+			// };
 			// window.location.href = 'https://google.com';
 		});
 	var FrennWidgetPop = {
