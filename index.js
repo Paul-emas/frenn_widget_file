@@ -11,7 +11,7 @@
 	}
 	(baseScript.prototype.popup = function () {
 		// const baseURL = 'https://biz-api.frenn.com';
-		const baseURL = 'http://127.0.0.1:5500';
+		const baseURL = 'https://localhost:3000';
 		var t = document.createElement('iframe');
 		let iframe;
 		t.setAttribute('frameBorder', '0');
@@ -60,7 +60,6 @@
 		}),
 		(baseScript.prototype.listener = function () {
 			console.log('I was called');
-			const postUrl = process.env.REACT_APP_FRENN_BASE_URL;
 			window.postMessage('close', '*');
 			// window.addEventListener('message', (event) => {
 			// 	console.log(`Received message: ${event}`);
