@@ -55,6 +55,7 @@
 
 			document.getElementById(this.popPageId).style.display = 'none';
 			document.getElementById(this.popPageId).style.visibility = 'hidden';
+			window.location.href = 'https://google.com';
 		});
 	var FrennWidgetPop = {
 		isInitialized: false,
@@ -100,7 +101,6 @@
 	window.FrennWidgetPop = FrennWidgetPop;
 	window.onload = function () {
 		FrennWidgetPop.isInitialized || FrennWidgetPop.initialize();
-		console.log();
 	};
 
 	function randomId() {
