@@ -7,6 +7,7 @@
 		this.iframeOpen = false;
 		this.defaults = t;
 		this.popup();
+		this.listener();
 	}
 	(baseScript.prototype.popup = function () {
 		const baseURL = 'https://biz-api.frenn.com';
@@ -55,6 +56,11 @@
 
 			document.getElementById(this.popPageId).style.display = 'none';
 			document.getElementById(this.popPageId).style.visibility = 'hidden';
+		}),
+		(baseScript.prototype.listener = function () {
+			window.addEventListener('message', (event) => {
+				console.log(`Received message: ${event.data}`);
+			});
 			window.location.href = 'https://google.com';
 		});
 	var FrennWidgetPop = {
