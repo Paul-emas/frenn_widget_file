@@ -10,8 +10,7 @@
 		this.listener();
 	}
 	(baseScript.prototype.popup = function () {
-		// const baseURL = 'https://biz-api.frenn.com';
-		const baseURL = 'https://localhost:3000';
+		const baseURL = 'https://biz-api.frenn.com';
 		var t = document.createElement('iframe');
 		let iframe;
 		t.setAttribute('frameBorder', '0');
