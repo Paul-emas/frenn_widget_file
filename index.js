@@ -61,7 +61,7 @@
 			window.addEventListener('message', (event) => {
 				console.log(`Received message: ${event.data}`);
 			});
-			window.location.href = 'https://google.com';
+			// window.location.href = 'https://google.com';
 		});
 	var FrennWidgetPop = {
 		isInitialized: false,
