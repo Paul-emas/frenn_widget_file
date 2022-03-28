@@ -94,16 +94,17 @@
 	};
 
 	baseScript.prototype.showSpinner = function () {
-		document.getElementById(this.backgroundId).children.style.display = 'block';
+		document.getElementById(this.backgroundId).contentWindow.document.getElementById('p-spinner').style.display =
+			'none';
 	};
 
 	baseScript.prototype.hideOverlay = function () {
-		document.getElementById(this.backgroundId).style.display = 'none';
+		document.getElementById(this.backgroundId).style.opacity = '0';
 		document.getElementById(this.backgroundId).style.visibility = 'hidden';
 	};
 
 	baseScript.prototype.showOverlay = function () {
-		document.getElementById(this.backgroundId).style.display = '';
+		document.getElementById(this.backgroundId).style.opacity = '1';
 		document.getElementById(this.backgroundId).style.visibility = 'visible';
 	};
 
