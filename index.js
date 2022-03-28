@@ -58,6 +58,8 @@
 			document.getElementById(this.popPageId).style.visibility = 'hidden';
 		}),
 		(baseScript.prototype.listener = function () {
+						console.log(event.data);
+
 			window.addEventListener('message', (event) => {
 				if (event.data !== undefined) {
 					if (event.data === 'close') {
