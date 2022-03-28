@@ -89,8 +89,8 @@
 	};
 
 	baseScript.prototype.hideSpinner = function () {
-		// document.getElementById(this.backgroundId).children.style.display = 'none';
-		console.log(document.getElementById(this.backgroundId).children);
+		document.getElementById(this.backgroundId).contentWindow.document.getElementById('p-spinner').style.display =
+			'none';
 	};
 
 	baseScript.prototype.showSpinner = function () {
