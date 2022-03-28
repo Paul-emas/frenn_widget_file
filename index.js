@@ -61,13 +61,17 @@
 			console.log('I was called');
 			// window.postMessage('close', '*');
 			window.addEventListener('message', (event) => {
-				console.log(`Received message: ${event}`);
-				console.log(`Received message: ${event.data}`);
+				if (event.data !== undefined) {
+					if (event.data === 'close') {
+						this.closePopUp();
+						return;
+					}
+					if (event.data === 'close:transaction') {
+						this.closePopUp();
+						window.location.href = this.defaults.redirectUrl;
+					}
+				}
 			});
-			window.onmessage = (event) => {
-				console.log(`Received message: ${event}`);
-			};
-			// window.location.href = 'https://google.com';
 		});
 	var FrennWidgetPop = {
 		isInitialized: false,
