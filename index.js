@@ -89,11 +89,11 @@
 	};
 
 	baseScript.prototype.hideSpinner = function () {
-		document.getElementById('p-spinner').style.display = 'none';
+		document.getElementById(this.backgroundId).children.style.display = 'none';
 	};
 
 	baseScript.prototype.showSpinner = function () {
-		document.getElementById('p-spinner').style.display = 'block';
+		document.getElementById(this.backgroundId).children.style.display = 'block';
 	};
 
 	baseScript.prototype.hideOverlay = function () {
