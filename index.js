@@ -58,10 +58,9 @@
 			document.getElementById(this.popPageId).style.visibility = 'hidden';
 		}),
 		(baseScript.prototype.listener = function () {
-						console.log(event.data);
-
 			window.addEventListener('message', (event) => {
-				if (event.data !== undefined) {
+				console.log(event.data);
+				if (event.data) {
 					if (event.data === 'close') {
 						console.log('I was called close');
 						this.closePopUp();
