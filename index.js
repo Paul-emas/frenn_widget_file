@@ -58,15 +58,15 @@
 			document.getElementById(this.popPageId).style.visibility = 'hidden';
 		}),
 		(baseScript.prototype.listener = function () {
-			console.log('I was called');
-			// window.postMessage('close', '*');
 			window.addEventListener('message', (event) => {
 				if (event.data !== undefined) {
 					if (event.data === 'close') {
+						console.log('I was called close');
 						this.closePopUp();
 						return;
 					}
 					if (event.data === 'close:transaction') {
+						console.log('I was called close 2');
 						this.closePopUp();
 						window.location.href = this.defaults.redirectUrl;
 					}
