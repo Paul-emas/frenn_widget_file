@@ -9,7 +9,8 @@
 		this.popup();
 		this.listener();
 	}
-	(baseScript.prototype.popup = function () {
+
+	baseScript.prototype.popup = function () {
 		// const baseURL = 'https://biz-api.frenn.com';
 		const baseURL = 'https://frenn-widget.vercel.app/';
 		var t = document.createElement('iframe');
@@ -27,7 +28,7 @@
 		var e = background.contentWindow.document;
 		e.open();
 		e.write(
-			'<div style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center;position: relative;"><svg style="animation: spin 1s linear infinite;" width="38" height="38" viewBox="0 0 38 38" xmlns="http://www.w3.org/2000/svg" stroke="#fff"><style>@-webkit-keyframes spin {0% { -webkit-transform: rotate(0deg); }100% { -webkit-transform: rotate(360deg); }}@keyframes spin {0% { transform: rotate(0deg); }100% { transform: rotate(360deg); }}</style><g fill="none" fill-rule="evenodd"><g transform="translate(1 1)" stroke-width="2"><circle stroke-opacity=".5" cx="18" cy="18" r="18"/><path d="M36 18c0-9.94-8.06-18-18-18"><animateTransform attributeName="transform" type="rotate" from="0 18 18" to="360 18 18" dur="1s" repeatCount="indefinite"/></path></g></g></svg></div>'
+			'<div style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center;position: relative;"><svg id="p-spinner" style="animation: spin 1s linear infinite;" width="38" height="38" viewBox="0 0 38 38" xmlns="http://www.w3.org/2000/svg" stroke="#fff"><style>@-webkit-keyframes spin {0% { -webkit-transform: rotate(0deg); }100% { -webkit-transform: rotate(360deg); }}@keyframes spin {0% { transform: rotate(0deg); }100% { transform: rotate(360deg); }}</style><g fill="none" fill-rule="evenodd"><g transform="translate(1 1)" stroke-width="2"><circle stroke-opacity=".5" cx="18" cy="18" r="18"/><path d="M36 18c0-9.94-8.06-18-18-18"><animateTransform attributeName="transform" type="rotate" from="0 18 18" to="360 18 18" dur="1s" repeatCount="indefinite"/></path></g></g></svg></div>'
 		);
 		e.close();
 		var n = document.createElement('iframe');
@@ -43,38 +44,68 @@
 		n.src = `${baseURL}${params}`;
 		this.popPageId = n.id;
 		document.body.appendChild(n);
-	}),
-		(baseScript.prototype.showPopUp = function () {
-			document.getElementById(this.backgroundId).style.display = '';
-			document.getElementById(this.backgroundId).style.visibility = 'visible';
+	};
 
-			document.getElementById(this.popPageId).style.display = '';
-			document.getElementById(this.popPageId).style.visibility = 'visible';
-		}),
-		(baseScript.prototype.closePopUp = function () {
-			document.getElementById(this.backgroundId).style.display = 'none';
-			document.getElementById(this.backgroundId).style.visibility = 'hidden';
+	baseScript.prototype.showPopUp = function () {
+		document.getElementById(this.backgroundId).style.display = '';
+		document.getElementById(this.backgroundId).style.visibility = 'visible';
 
-			document.getElementById(this.popPageId).style.display = 'none';
-			document.getElementById(this.popPageId).style.visibility = 'hidden';
-		}),
-		(baseScript.prototype.listener = function () {
-			window.addEventListener('message', (event) => {
-				console.log(event.data);
-				if (event.data) {
-					if (event.data === 'close') {
-						console.log('I was called close');
-						this.closePopUp();
-						return;
-					}
-					if (event.data === 'close:transaction') {
-						console.log('I was called close 2');
-						this.closePopUp();
-						window.location.href = this.defaults.redirectUrl;
-					}
+		document.getElementById(this.popPageId).style.display = '';
+		document.getElementById(this.popPageId).style.visibility = 'visible';
+	};
+
+	baseScript.prototype.closePopUp = function () {
+		document.getElementById(this.backgroundId).style.display = 'none';
+		document.getElementById(this.backgroundId).style.visibility = 'hidden';
+
+		document.getElementById(this.popPageId).style.display = 'none';
+		document.getElementById(this.popPageId).style.visibility = 'hidden';
+	};
+
+	baseScript.prototype.listener = function () {
+		window.addEventListener('message', (event) => {
+			if (event.data) {
+				if (event.data === 'show:spinner') {
+					this.showSpinner();
 				}
-			});
+				if (event.data === 'show:overlay') {
+					this.showOverlay();
+				}
+				if (event.data === 'hide:overlay') {
+					this.hideOverlay();
+				}
+				if (event.data === 'hide:spinner') {
+					this.hideSpinner();
+				}
+				if (event.data === 'close') {
+					this.closePopUp();
+				}
+				if (event.data === 'close:transaction') {
+					this.closePopUp();
+					window.location.href = this.defaults.redirectUrl;
+				}
+			}
 		});
+	};
+
+	baseScript.prototype.hideSpinner = function () {
+		document.getElementById('p-spinner').style.display = 'none';
+	};
+
+	baseScript.prototype.showSpinner = function () {
+		document.getElementById('p-spinner').style.display = 'block';
+	};
+
+	baseScript.prototype.hideOverlay = function () {
+		document.getElementById(this.backgroundId).style.display = 'none';
+		document.getElementById(this.backgroundId).style.visibility = 'hidden';
+	};
+
+	baseScript.prototype.showOverlay = function () {
+		document.getElementById(this.backgroundId).style.display = '';
+		document.getElementById(this.backgroundId).style.visibility = 'visible';
+	};
+
 	var FrennWidgetPop = {
 		isInitialized: false,
 		initialize: function (t) {
