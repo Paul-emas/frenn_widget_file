@@ -11,8 +11,8 @@
 	}
 
 	baseScript.prototype.popup = function () {
-		// const baseURL = 'https://biz-api.frenn.com';
-		const baseURL = 'https://frenn-widget.vercel.app/';
+		const baseURL = 'https://biz-api.frenn.com';
+// 		const baseURL = 'https://frenn-widget.vercel.app/';
 		var t = document.createElement('iframe');
 		let iframe;
 		t.setAttribute('frameBorder', '0');
